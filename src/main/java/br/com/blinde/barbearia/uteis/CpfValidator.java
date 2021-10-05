@@ -4,6 +4,7 @@ import br.com.blinde.barbearia.uteis.beans.Cpf;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.util.Objects;
 
 public class CpfValidator implements ConstraintValidator<Cpf, String> {
 
@@ -14,7 +15,7 @@ public class CpfValidator implements ConstraintValidator<Cpf, String> {
 
         String cpfSomenteDigitos = cpf.replaceAll("\\D", "");
 
-        if ((cpfSomenteDigitos == null) || (cpfSomenteDigitos.length() != 11) || cpfSomenteDigitos.equals("00000000000")
+        if (Objects.isNull(cpfSomenteDigitos) || (cpfSomenteDigitos.length() != 11) || cpfSomenteDigitos.equals("00000000000")
                 || cpfSomenteDigitos.equals("11111111111") || cpfSomenteDigitos.equals("22222222222")
                 || cpfSomenteDigitos.equals("33333333333") || cpfSomenteDigitos.equals("44444444444")
                 || cpfSomenteDigitos.equals("55555555555") || cpfSomenteDigitos.equals("66666666666")
