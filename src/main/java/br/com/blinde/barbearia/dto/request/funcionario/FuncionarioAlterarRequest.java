@@ -32,7 +32,6 @@ public class FuncionarioAlterarRequest {
     private String telefone;
 
     @CPF
-    @NotBlank
     private String cpf;
 
     @NotNull

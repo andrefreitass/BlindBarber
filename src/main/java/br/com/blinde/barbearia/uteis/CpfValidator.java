@@ -13,9 +13,9 @@ public class CpfValidator implements ConstraintValidator<Cpf, String> {
     @Override
     public boolean isValid(String cpf, ConstraintValidatorContext context) {
 
-        String cpfSomenteDigitos = cpf.replaceAll("\\D", "");
+        String cpfSomenteDigitos = Objects.isNull(cpf) ? null : cpf.replaceAll("\\D", "");
 
-        if (Objects.isNull(cpfSomenteDigitos) || (cpfSomenteDigitos.length() != 11) || cpfSomenteDigitos.equals("00000000000")
+        if (Objects.isNull(cpf) || (cpfSomenteDigitos.length() != 11) || cpfSomenteDigitos.equals("00000000000")
                 || cpfSomenteDigitos.equals("11111111111") || cpfSomenteDigitos.equals("22222222222")
                 || cpfSomenteDigitos.equals("33333333333") || cpfSomenteDigitos.equals("44444444444")
                 || cpfSomenteDigitos.equals("55555555555") || cpfSomenteDigitos.equals("66666666666")

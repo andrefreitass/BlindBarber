@@ -33,7 +33,6 @@ public class FuncionarioIncluirRequest {
     private String telefone;
 
     @Cpf
-    @NotBlank
     private String cpf;
 
     @NotNull
