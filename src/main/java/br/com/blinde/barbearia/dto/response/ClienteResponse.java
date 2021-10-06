@@ -23,27 +23,16 @@ public class ClienteResponse {
     private String cpf;
     private String dataNascimento;
     private String telefone;
-    private Boolean possuiAgendamento;
-
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataAgendamento;
-
-    @JsonFormat(pattern = "HH:mm")
-    private LocalTime horaAgendamento;
-
     private EnderecoResponse endereco;
     private SexoEnums sexo;
 
     public ClienteResponse(Cliente cliente) {
-       this.id = cliente.getId();
+        this.id = cliente.getId();
         this.nome = cliente.getNome();
         this.sobreNome = cliente.getSobreNome();
         this.cpf = cliente.getCpf();
         this.dataNascimento = cliente.getDataNascimento();
         this.telefone = cliente.getTelefone();
-        this.possuiAgendamento = cliente.getPossuiAgendamento();
-        this.dataAgendamento = cliente.getDataAgendamento();
-        this.horaAgendamento = cliente.getHoraAgendamento();
         this.endereco = new EnderecoResponse(cliente.getEndereco());
         this.sexo = cliente.getSexo();
     }

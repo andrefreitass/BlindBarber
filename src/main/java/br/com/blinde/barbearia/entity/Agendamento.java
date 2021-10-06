@@ -1,6 +1,5 @@
 package br.com.blinde.barbearia.entity;
 
-import br.com.blinde.barbearia.enums.StatusAgendamentoEnums;
 import br.com.blinde.barbearia.enums.StatusAtendimentoEnums;
 
 import javax.persistence.*;

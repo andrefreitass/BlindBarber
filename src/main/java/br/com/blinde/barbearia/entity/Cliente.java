@@ -29,18 +29,12 @@ public class Cliente {
 
     private String telefone;
 
-    private Boolean possuiAgendamento;
-
-    private LocalDate dataAgendamento;
-
-    private LocalTime horaAgendamento;
-
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Endereco endereco;
 
     @Enumerated(EnumType.STRING)
     private SexoEnums sexo;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Agendamento agendamento;
 }

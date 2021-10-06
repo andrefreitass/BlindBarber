@@ -1,6 +1,5 @@
 package br.com.blinde.barbearia.mapper;
 
-import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarAgendamentoRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteIncluirRequest;
 import br.com.blinde.barbearia.dto.response.ClienteResponse;
@@ -25,9 +24,6 @@ public class ClienteMapper {
         response.setCpf(source.getCpf());
         response.setDataNascimento(source.getDataNascimento());
         response.setTelefone(source.getTelefone());
-        response.setPossuiAgendamento(source.getPossuiAgendamento());
-        response.setDataAgendamento(source.getDataAgendamento());
-        response.setHoraAgendamento(source.getHoraAgendamento());
         response.setEndereco(enderecoMapper.converterEnderecoParaResponse(source.getEndereco()));
         response.setSexo(source.getSexo());
 
@@ -42,9 +38,6 @@ public class ClienteMapper {
         cliente.setCpf(source.getCpf());
         cliente.setDataNascimento(source.getDataNascimento());
         cliente.setTelefone(source.getTelefone());
-        cliente.setPossuiAgendamento(source.getPossuiAgendamento());
-        cliente.setDataAgendamento(source.getDataAgendamento());
-        cliente.setHoraAgendamento(source.getHoraAgendamento());
         cliente.setEndereco(enderecoMapper.converterIncluirParaEndereco(source.getEndereco()));
         cliente.setSexo(source.getSexo());
 
@@ -59,19 +52,8 @@ public class ClienteMapper {
         cliente.setCpf(source.getCpf());
         cliente.setDataNascimento(source.getDataNascimento());
         cliente.setTelefone(source.getTelefone());
-        cliente.setPossuiAgendamento(source.getPossuiAgendamento());
-        cliente.setDataAgendamento(source.getDataAgendamento());
-        cliente.setHoraAgendamento(source.getHoraAgendamento());
         cliente.setEndereco(enderecoMapper.converterAlterarParaEndereco(source.getEndereco()));
         cliente.setSexo(source.getSexo());
-
-        return cliente;
-    }
-
-    public Cliente converterAlterarAgendamentoParaCliente(ClienteAlterarAgendamentoRequest source) {
-        cliente.setId(source.getId());
-        cliente.setDataAgendamento(source.getDataAgendamento());
-        cliente.setHoraAgendamento(source.getHoraAgendamento());
 
         return cliente;
     }

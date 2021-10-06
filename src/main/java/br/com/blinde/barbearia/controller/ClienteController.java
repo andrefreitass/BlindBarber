@@ -54,16 +54,9 @@ public class ClienteController {
         return ResponseEntity.ok(service.alterarCliente(cliente));
     }
 
-    @PutMapping("/agendamento")
-    @Transactional
-    public ResponseEntity<ClienteResponse> alterarAgendamentoCliente(@Valid @RequestBody ClienteAlterarAgendamentoRequest agendamento) {
-        return ResponseEntity.ok(service.alterarAgendamentoCliente(agendamento));
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok().build();
     }
-
 }

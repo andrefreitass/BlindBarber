@@ -1,6 +1,5 @@
 package br.com.blinde.barbearia.service;
 
-import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarAgendamentoRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteIncluirRequest;
 import br.com.blinde.barbearia.dto.response.ClienteResponse;
@@ -15,8 +14,6 @@ public interface ClienteService {
     ClienteResponse incluirCliente(ClienteIncluirRequest cliente);
 
     ClienteResponse alterarCliente(ClienteAlterarRequest cliente);
-
-    ClienteResponse alterarAgendamentoCliente(ClienteAlterarAgendamentoRequest agendamento);
 
     void delete(Long id);
 }

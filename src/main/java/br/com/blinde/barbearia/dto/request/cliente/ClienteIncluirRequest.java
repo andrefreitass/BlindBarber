@@ -55,19 +55,6 @@ public class ClienteIncluirRequest {
     private String telefone;
 
     @NotNull
-    private Boolean possuiAgendamento;
-
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate dataAgendamento;
-
-    @JsonDeserialize(using = LocalTimeDeserializer.class)
-    @JsonFormat(pattern = "HH:mm")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime horaAgendamento;
-
-    @NotNull
     @Valid
     private EnderecoIncluirRequest endereco;
 

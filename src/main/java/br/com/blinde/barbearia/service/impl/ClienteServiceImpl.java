@@ -50,14 +50,6 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ClienteResponse alterarAgendamentoCliente(ClienteAlterarAgendamentoRequest agendamentoRequest) {
-        buscarPorId(agendamentoRequest.getId());
-        Cliente cliente = mapper.converterAlterarAgendamentoParaCliente(agendamentoRequest);
-        Cliente alteracaoAgendamento = repository.save(cliente);
-        return mapper.converterClienteParaResponse(alteracaoAgendamento);
-    }
-
-    @Override
     public void delete(Long id) {
         buscarPorId(id);
         repository.deleteById(id);
