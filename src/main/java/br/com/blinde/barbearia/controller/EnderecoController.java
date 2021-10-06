@@ -25,8 +25,7 @@ public class EnderecoController {
     private EnderecoService service;
 
     @GetMapping("/")
-    public Page<EnderecoResponse> listaEndereco(@RequestParam(required = false) String nomeFuncionario,
-                                                @RequestParam int pagina, @RequestParam int quantidadePagina,
+    public Page<EnderecoResponse> listaEndereco(@RequestParam int pagina, @RequestParam int quantidadePagina,
                                                 @RequestParam Sort.Direction ordenacao, @RequestParam String objetoOrdenacao) {
 
         Pageable paginacao = new MontarRequestPaginacao(pagina, quantidadePagina, ordenacao, objetoOrdenacao).requestPaginacao();

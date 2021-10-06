@@ -6,20 +6,34 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Funcionario {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
-    private String telefone;
+
+    private String sobreNome;
+
     private String cpf;
+
+    private String dataNascimento;
+
+    private String telefone;
+
+    private Boolean possuiAgendamento;
+
+    private LocalDate dataAgendamento;
+
+    private LocalTime horaAgendamento;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Endereco endereco;

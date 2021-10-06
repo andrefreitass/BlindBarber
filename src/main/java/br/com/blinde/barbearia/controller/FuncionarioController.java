@@ -7,7 +7,6 @@ import br.com.blinde.barbearia.service.FuncionarioService;
 import br.com.blinde.barbearia.uteis.MontarRequestPaginacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +25,7 @@ public class FuncionarioController {
     private FuncionarioService service;
 
     @GetMapping("/")
-    public Page<FuncionarioResponse> listaFuncionario(@RequestParam(required = false) String nomeFuncionario,
-                                                          @RequestParam int pagina, @RequestParam int quantidadePagina,
+    public Page<FuncionarioResponse> listaFuncionario( @RequestParam int pagina, @RequestParam int quantidadePagina,
                                                          @RequestParam Sort.Direction ordenacao,@RequestParam String objetoOrdenacao) {
 
         Pageable paginacao = new MontarRequestPaginacao(pagina,quantidadePagina,ordenacao,objetoOrdenacao).requestPaginacao();
