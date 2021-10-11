@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -21,12 +22,12 @@ public class Funcionario {
     private String telefone;
     private String cpf;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Endereco endereco;
 
     @Enumerated(EnumType.STRING)
     private SexoEnums sexo;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Agendamento agendamento;
+    @OneToMany(mappedBy = "funcionario")
+    private List<Agendamento> agendamento;
 }

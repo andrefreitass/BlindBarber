@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -35,6 +36,6 @@ public class Cliente {
     @Enumerated(EnumType.STRING)
     private SexoEnums sexo;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Agendamento agendamento;
+    @OneToMany(mappedBy = "cliente")
+    private List<Agendamento> agendamento;
 }

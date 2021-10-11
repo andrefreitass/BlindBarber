@@ -18,7 +18,4 @@ public interface FuncionarioService {
     FuncionarioResponse alterarFuncionario(FuncionarioAlterarRequest funcionarioRequest);
 
     void delete(Long id);
-
-
-
 }

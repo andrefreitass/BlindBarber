@@ -1,6 +1,5 @@
 package br.com.blinde.barbearia.service.impl;
 
-import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarAgendamentoRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteIncluirRequest;
 import br.com.blinde.barbearia.dto.response.ClienteResponse;

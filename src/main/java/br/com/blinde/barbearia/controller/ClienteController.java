@@ -1,12 +1,8 @@
 package br.com.blinde.barbearia.controller;
 
-import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarAgendamentoRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteAlterarRequest;
 import br.com.blinde.barbearia.dto.request.cliente.ClienteIncluirRequest;
-import br.com.blinde.barbearia.dto.request.funcionario.FuncionarioAlterarRequest;
-import br.com.blinde.barbearia.dto.request.funcionario.FuncionarioIncluirRequest;
 import br.com.blinde.barbearia.dto.response.ClienteResponse;
-import br.com.blinde.barbearia.dto.response.FuncionarioResponse;
 import br.com.blinde.barbearia.service.ClienteService;
 import br.com.blinde.barbearia.uteis.MontarRequestPaginacao;
 import org.springframework.beans.factory.annotation.Autowired;
