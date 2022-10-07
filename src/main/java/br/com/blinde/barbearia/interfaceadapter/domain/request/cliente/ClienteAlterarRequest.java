@@ -1,4 +1,4 @@
-package br.com.blinde.barbearia.interfaceadapter.domain.request;
+package br.com.blinde.barbearia.interfaceadapter.domain.request.cliente;
 
 import br.com.blinde.barbearia.interfaceadapter.util.bean.Cpf;
 import jakarta.validation.constraints.NotBlank;
@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -33,7 +34,7 @@ public class ClienteAlterarRequest implements Serializable {
 
     @NotBlank
     @Pattern(regexp = "(\\d{2})/\\d{2}/\\d{4}$")
-    private String dataNascimento;
+    private LocalDate dataNascimento;
 
     @NotBlank
     @Pattern(regexp = "(\\d{2})-\\d{5}-\\d{4}$")

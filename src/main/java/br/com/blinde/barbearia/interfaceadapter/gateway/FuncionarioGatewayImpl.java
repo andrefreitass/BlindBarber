@@ -1,8 +1,8 @@
 package br.com.blinde.barbearia.interfaceadapter.gateway;
 
-import br.com.blinde.barbearia.businessrule.gateway.ClienteGateway;
-import br.com.blinde.barbearia.domain.Cliente;
-import br.com.blinde.barbearia.interfaceadapter.repository.ClienteRepository;
+import br.com.blinde.barbearia.businessrule.gateway.FuncionarioGateway;
+import br.com.blinde.barbearia.domain.Funcionario;
+import br.com.blinde.barbearia.interfaceadapter.repository.FuncionarioRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,17 +11,17 @@ import java.util.Optional;
 
 @Component
 @AllArgsConstructor
-public class ClienteGatewayImpl implements ClienteGateway {
+public class FuncionarioGatewayImpl implements FuncionarioGateway {
 
-    private final ClienteRepository repository;
+    private final FuncionarioRepository repository;
 
     @Override
-    public Optional<Cliente> findById(Long id) {
+    public Optional<Funcionario> findById(Long id) {
         return repository.findById(id);
     }
 
     @Override
-    public List<Cliente> findAll() {
+    public List<Funcionario> findAll() {
         return repository.findAll();
     }
 
@@ -31,17 +31,17 @@ public class ClienteGatewayImpl implements ClienteGateway {
     }
 
     @Override
-    public Cliente create(Cliente entity) {
+    public Funcionario create(Funcionario entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Cliente update(Cliente entity) {
+    public Funcionario update(Funcionario entity) {
         return repository.save(entity);
     }
 
     @Override
-    public Optional<Cliente> findByCpf(String cpf) {
+    public Optional<Funcionario> findByCpf(String cpf) {
         return repository.findByCpf(cpf);
     }
 }

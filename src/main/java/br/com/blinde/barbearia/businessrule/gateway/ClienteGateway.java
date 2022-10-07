@@ -16,4 +16,6 @@ public interface ClienteGateway {
     Cliente update(Cliente entity);
 
     void delete(Long id);
+
+    Optional<Cliente> findByCpf(String id);
 }

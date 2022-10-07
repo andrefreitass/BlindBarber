@@ -1,9 +1,13 @@
-package br.com.blinde.barbearia.interfaceadapter.domain.response;
+package br.com.blinde.barbearia.domain;
 
 import br.com.blinde.barbearia.interfaceadapter.enums.SexoEnums;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,19 +15,25 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
-@Builder
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClienteResponse implements Serializable {
+public class Funcionario implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
+
     private String sobreNome;
+
     private String cpf;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
     private String telefone;
+
+    @Enumerated(EnumType.STRING)
     private SexoEnums sexo;
 }

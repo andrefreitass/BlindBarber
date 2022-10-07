@@ -1,11 +1,10 @@
 package br.com.blinde.barbearia.interfaceadapter.controller;
 
 import br.com.blinde.barbearia.businessrule.exception.entities.ExceptionResponse;
-import br.com.blinde.barbearia.businessrule.usecase.ClienteUseCase;
-import br.com.blinde.barbearia.interfaceadapter.domain.request.cliente.ClienteAlterarRequest;
-import br.com.blinde.barbearia.interfaceadapter.domain.request.cliente.ClienteIncluirRequest;
-import br.com.blinde.barbearia.interfaceadapter.domain.response.ClienteResponse;
-import br.com.blinde.barbearia.interfaceadapter.util.bean.Cpf;
+import br.com.blinde.barbearia.businessrule.usecase.AgendamentoUseCase;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.agendamento.AgendamentoAlterarRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.agendamento.AgendamentoIncluirRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.response.AgendamentoResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -27,19 +26,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/client/v1")
-@Tag(name = "Client", description = "End Points Clients")
+@RequestMapping("/api/scheduling/v1")
+@Tag(name = "Scheduling", description = "End Points Scheduling")
 @AllArgsConstructor
-public class ClienteController {
+public class AgendamentoController {
 
-    private final ClienteUseCase useCase;
+    private final AgendamentoUseCase useCase;
 
     @GetMapping("/{id}")
-    @Operation(summary = "Finds a Client", description = "Finds a Client",
-            tags = {"Client"},
+    @Operation(summary = "Finds a Scheduling", description = "Finds a Scheduling",
+            tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "Sucess", responseCode = "200",
-                            content = {@Content(schema = @Schema(implementation = ClienteResponse.class)
+                            content = {@Content(schema = @Schema(implementation = AgendamentoResponse.class)
                             )}),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = {@Content(
                             schema = @Schema(implementation = ExceptionResponse.class)
@@ -55,18 +54,18 @@ public class ClienteController {
                     )})
             }
     )
-    public ClienteResponse findById(@PathVariable(value = "id") Long id) {
+    public AgendamentoResponse findById(@PathVariable(value = "id") Long id) {
         return useCase.findById(id);
     }
 
     @GetMapping("/")
-    @Operation(summary = "Finds all Client", description = "Finds all Client",
-            tags = {"Client"},
+    @Operation(summary = "Finds all Scheduling", description = "Finds all Scheduling",
+            tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "Sucess", responseCode = "200",
                             content = {@Content(
                                     mediaType = "application/json",
-                                    array = @ArraySchema(schema = @Schema(implementation = ClienteResponse.class))
+                                    array = @ArraySchema(schema = @Schema(implementation = AgendamentoResponse.class))
                             )}),
                     @ApiResponse(description = "Unauthorized", responseCode = "401", content = {@Content(
                             schema = @Schema(implementation = ExceptionResponse.class)
@@ -79,16 +78,16 @@ public class ClienteController {
                     )})
             }
     )
-    public List<ClienteResponse> findAll() {
+    public List<AgendamentoResponse> findAll() {
         return useCase.findAll();
     }
 
     @PostMapping("/")
-    @Operation(summary = "Adds new client", description = "Adds new client",
-            tags = {"Client"},
+    @Operation(summary = "Adds new Scheduling", description = "Adds new Scheduling",
+            tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "Sucess", responseCode = "200",
-                            content = {@Content(schema = @Schema(implementation = ClienteResponse.class)
+                            content = {@Content(schema = @Schema(implementation = AgendamentoResponse.class)
                             )}),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = {@Content(
                             schema = @Schema(implementation = ExceptionResponse.class)
@@ -101,16 +100,16 @@ public class ClienteController {
                     )})
             }
     )
-    public ClienteResponse create(@Valid @RequestBody ClienteIncluirRequest request) {
+    public AgendamentoResponse create(@Valid @RequestBody AgendamentoIncluirRequest request) {
         return useCase.create(request);
     }
 
     @PutMapping("/")
-    @Operation(summary = "Update a client", description = "Update a client",
-            tags = {"Client"},
+    @Operation(summary = "Update a Scheduling", description = "Update a Scheduling",
+            tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "Sucess", responseCode = "200",
-                            content = {@Content(schema = @Schema(implementation = ClienteResponse.class)
+                            content = {@Content(schema = @Schema(implementation = AgendamentoResponse.class)
                             )}),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = {@Content(
                             schema = @Schema(implementation = ExceptionResponse.class)
@@ -126,13 +125,13 @@ public class ClienteController {
                     )})
             }
     )
-    public ClienteResponse update(@Valid @RequestBody ClienteAlterarRequest request) {
+    public AgendamentoResponse update(@Valid @RequestBody AgendamentoAlterarRequest request) {
         return useCase.update(request);
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete a client", description = "Delete a client",
-            tags = {"Client"},
+    @Operation(summary = "Delete a Scheduling", description = "Delete a Scheduling",
+            tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "No Content", responseCode = "204", content = @Content),
 
@@ -155,12 +154,12 @@ public class ClienteController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/document/{cpf}")
-    @Operation(summary = "Find a Client cpf", description = "Find a Client cpf",
-            tags = {"Client"},
+    @GetMapping("/client/{cpf}")
+    @Operation(summary = "Find a Scheduling cpf", description = "Find a Scheduling cpf",
+            tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "Sucess", responseCode = "200",
-                            content = {@Content(schema = @Schema(implementation = ClienteResponse.class)
+                            content = {@Content(schema = @Schema(implementation = AgendamentoResponse.class)
                             )}),
                     @ApiResponse(description = "Bad Request", responseCode = "400", content = {@Content(
                             schema = @Schema(implementation = ExceptionResponse.class)
@@ -176,8 +175,32 @@ public class ClienteController {
                     )})
             }
     )
-    public ClienteResponse findByCpf(@PathVariable(value = "cpf") @Cpf String cpf) {
-        return useCase.findByCpf(cpf);
+    public List<AgendamentoResponse> findByCpfClient(@PathVariable(value = "cpf") String cpf) {
+        return useCase.findByCpfClient(cpf);
     }
 
+    @GetMapping("/employee/{cpf}")
+    @Operation(summary = "Find a Scheduling cpf", description = "Find a Scheduling cpf",
+            tags = {"Scheduling"},
+            responses = {
+                    @ApiResponse(description = "Sucess", responseCode = "200",
+                            content = {@Content(schema = @Schema(implementation = AgendamentoResponse.class)
+                            )}),
+                    @ApiResponse(description = "Bad Request", responseCode = "400", content = {@Content(
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    )}),
+                    @ApiResponse(description = "Unauthorized", responseCode = "401", content = {@Content(
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    )}),
+                    @ApiResponse(description = "Not Found", responseCode = "404", content = {@Content(
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    )}),
+                    @ApiResponse(description = "Internal Server Error", responseCode = "500", content = {@Content(
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    )})
+            }
+    )
+    public List<AgendamentoResponse> findByCpfEmployee(@PathVariable(value = "cpf") String cpf) {
+        return useCase.findByCpfEmployee(cpf);
+    }
 }

@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClienteResponse implements Serializable {
+public class FuncionarioResponse implements Serializable {
 
     private Long id;
     private String nome;

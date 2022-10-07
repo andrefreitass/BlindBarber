@@ -1,14 +1,14 @@
 package br.com.blinde.barbearia.businessrule.usecase.impl;
 
+import br.com.blinde.barbearia.businessrule.exception.NoSuchElementException;
 import br.com.blinde.barbearia.businessrule.gateway.ClienteGateway;
 import br.com.blinde.barbearia.businessrule.mapper.ObjectMapper;
 import br.com.blinde.barbearia.businessrule.messages.MessageSourceServiceImpl;
 import br.com.blinde.barbearia.businessrule.messages.MessageTypeEnum;
 import br.com.blinde.barbearia.businessrule.usecase.ClienteUseCase;
-import br.com.blinde.barbearia.businessrule.exception.NoSuchElementException;
 import br.com.blinde.barbearia.domain.Cliente;
-import br.com.blinde.barbearia.interfaceadapter.domain.request.ClienteAlterarRequest;
-import br.com.blinde.barbearia.interfaceadapter.domain.request.ClienteIncluirRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.cliente.ClienteAlterarRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.cliente.ClienteIncluirRequest;
 import br.com.blinde.barbearia.interfaceadapter.domain.response.ClienteResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -66,5 +66,14 @@ public class ClienteUseCaseImpl implements ClienteUseCase {
     public void delete(Long id) {
         findById(id);
         gateway.delete(id);
+    }
+
+    @Override
+    public ClienteResponse findByCpf(String cpf) {
+
+        Cliente entity = gateway.findByCpf(cpf).orElseThrow(() ->
+                new NoSuchElementException(message.getMessage(MessageTypeEnum.NOT_FOUND.getMessage(), cpf)));
+
+        return ObjectMapper.parseObject(entity, ClienteResponse.class);
     }
 }

@@ -1,6 +1,8 @@
 package br.com.blinde.barbearia.domain;
 
-import br.com.blinde.barbearia.interfaceadapter.enums.SexoEnums;
+import br.com.blinde.barbearia.interfaceadapter.enums.FormaPagamento;
+import br.com.blinde.barbearia.interfaceadapter.enums.Servico;
+import br.com.blinde.barbearia.interfaceadapter.enums.StatusPagamento;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -12,28 +14,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cliente implements Serializable {
+public class Pagamento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-
-    private String sobreNome;
-
-    private String cpf;
-
-    private LocalDate dataNascimento;
-
-    private String telefone;
+    @Enumerated(EnumType.STRING)
+    private Servico servico;
 
     @Enumerated(EnumType.STRING)
-    private SexoEnums sexo;
+    private FormaPagamento formaPagamento;
+
+    @Enumerated(EnumType.STRING)
+    private StatusPagamento statusPagamento;
 }

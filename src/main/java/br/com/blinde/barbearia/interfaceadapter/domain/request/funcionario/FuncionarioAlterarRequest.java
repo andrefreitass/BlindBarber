@@ -1,8 +1,6 @@
-package br.com.blinde.barbearia.interfaceadapter.domain.request;
+package br.com.blinde.barbearia.interfaceadapter.domain.request.funcionario;
 
-import br.com.blinde.barbearia.interfaceadapter.enums.SexoEnums;
 import br.com.blinde.barbearia.interfaceadapter.util.bean.Cpf;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -12,12 +10,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClienteIncluirRequest implements Serializable {
+public class FuncionarioAlterarRequest implements Serializable {
+
+    @NotNull
+    private Long id;
 
     @NotBlank
     @Size(max = 100)
@@ -27,18 +27,15 @@ public class ClienteIncluirRequest implements Serializable {
     @Size(max = 200)
     private String sobreNome;
 
-    @Cpf
     @NotBlank
+    @Cpf
     private String cpf;
 
-    @NotNull
-    @JsonFormat(pattern="dd/MM/yyyy")
-    private Date dataNascimento;
+    @NotBlank
+    @Pattern(regexp = "(\\d{2})/\\d{2}/\\d{4}$")
+    private String dataNascimento;
 
     @NotBlank
     @Pattern(regexp = "(\\d{2})-\\d{5}-\\d{4}$")
     private String telefone;
-
-    @NotNull
-    private SexoEnums sexo;
 }
