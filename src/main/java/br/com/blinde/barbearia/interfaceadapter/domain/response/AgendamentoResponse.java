@@ -27,4 +27,5 @@ public class AgendamentoResponse implements Serializable {
     private StatusAgendamentoEnum status;
     private ClienteResponse cliente;
     private FuncionarioResponse funcionario;
+    private PaymentResponse pagamento;
 }

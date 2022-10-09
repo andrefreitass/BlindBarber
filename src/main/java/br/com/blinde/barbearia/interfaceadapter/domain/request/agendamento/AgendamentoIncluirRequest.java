@@ -1,5 +1,6 @@
 package br.com.blinde.barbearia.interfaceadapter.domain.request.agendamento;
 
+import br.com.blinde.barbearia.interfaceadapter.domain.request.pagamento.PaymentIncludeRequest;
 import br.com.blinde.barbearia.interfaceadapter.enums.StatusAgendamentoEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -25,4 +26,5 @@ public class AgendamentoIncluirRequest implements Serializable {
     private StatusAgendamentoEnum status;
     private String clienteCpf;
     private String funcionarioCpf;
+    private PaymentIncludeRequest pagamento;
 }
