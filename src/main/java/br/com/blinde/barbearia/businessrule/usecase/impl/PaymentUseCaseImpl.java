@@ -6,7 +6,7 @@ import br.com.blinde.barbearia.businessrule.messages.MessageSourceServiceImpl;
 import br.com.blinde.barbearia.businessrule.messages.MessageTypeEnum;
 import br.com.blinde.barbearia.businessrule.usecase.PaymentUseCase;
 import br.com.blinde.barbearia.domain.Payment;
-import br.com.blinde.barbearia.interfaceadapter.domain.request.pagamento.PaymentChangeRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.payment.PaymentChangeRequest;
 import br.com.blinde.barbearia.interfaceadapter.domain.response.PaymentResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package br.com.blinde.barbearia.businessrule.usecase;
 
-import br.com.blinde.barbearia.interfaceadapter.domain.request.pagamento.PaymentChangeRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.payment.PaymentChangeRequest;
 import br.com.blinde.barbearia.interfaceadapter.domain.response.PaymentResponse;
 
 import java.util.List;

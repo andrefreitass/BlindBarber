@@ -2,7 +2,7 @@ package br.com.blinde.barbearia.interfaceadapter.controller;
 
 import br.com.blinde.barbearia.businessrule.exception.entities.ExceptionResponse;
 import br.com.blinde.barbearia.businessrule.usecase.PaymentUseCase;
-import br.com.blinde.barbearia.interfaceadapter.domain.request.pagamento.PaymentChangeRequest;
+import br.com.blinde.barbearia.interfaceadapter.domain.request.payment.PaymentChangeRequest;
 import br.com.blinde.barbearia.interfaceadapter.domain.response.PaymentResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
