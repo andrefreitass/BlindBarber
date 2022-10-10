@@ -27,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -182,7 +181,7 @@ public class SchedulingController {
     )
     public List<ClientSchedulingResponse> findByCpfClient(@PathVariable(value = "cpf") String cpf,
                                                           @PathVariable(value = "date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
-        return useCase.findByCpfClient(cpf,date);
+        return useCase.findByCpfClient(cpf, date);
     }
 
     @GetMapping("/employee/{cpf}/{date}")
