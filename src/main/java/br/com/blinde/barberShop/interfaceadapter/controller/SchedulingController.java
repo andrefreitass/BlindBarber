@@ -4,6 +4,8 @@ import br.com.blinde.barberShop.businessrule.exception.entities.ExceptionRespons
 import br.com.blinde.barberShop.businessrule.usecase.SchedulingUseCase;
 import br.com.blinde.barberShop.interfaceadapter.domain.request.schedule.ScheduleChangesRequest;
 import br.com.blinde.barberShop.interfaceadapter.domain.request.schedule.ScheduleIncludeRequest;
+import br.com.blinde.barberShop.interfaceadapter.domain.response.ClientSchedulingResponse;
+import br.com.blinde.barberShop.interfaceadapter.domain.response.EmployeeSchedulingResponse;
 import br.com.blinde.barberShop.interfaceadapter.domain.response.SchedulingResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -13,6 +15,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -154,7 +159,7 @@ public class SchedulingController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/client/{cpf}")
+    @GetMapping("/client/{cpf}/{date}")
     @Operation(summary = "Find a Scheduling cpf", description = "Find a Scheduling cpf",
             tags = {"Scheduling"},
             responses = {
@@ -175,11 +180,12 @@ public class SchedulingController {
                     )})
             }
     )
-    public List<SchedulingResponse> findByCpfClient(@PathVariable(value = "cpf") String cpf) {
-        return useCase.findByCpfClient(cpf);
+    public List<ClientSchedulingResponse> findByCpfClient(@PathVariable(value = "cpf") String cpf,
+                                                          @PathVariable(value = "date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
+        return useCase.findByCpfClient(cpf,date);
     }
 
-    @GetMapping("/employee/{cpf}")
+    @GetMapping("/employee/{cpf}/{date}")
     @Operation(summary = "Find a Scheduling cpf", description = "Find a Scheduling cpf",
             tags = {"Scheduling"},
             responses = {
@@ -200,7 +206,8 @@ public class SchedulingController {
                     )})
             }
     )
-    public List<SchedulingResponse> findByCpfEmployee(@PathVariable(value = "cpf") String cpf) {
-        return useCase.findByCpfEmployee(cpf);
+    public List<EmployeeSchedulingResponse> findByCpfEmployee(@PathVariable(value = "cpf") String cpf,
+                                                              @PathVariable(value = "date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
+        return useCase.findByCpfEmployee(cpf, date);
     }
 }

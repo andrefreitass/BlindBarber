@@ -2,6 +2,7 @@ package br.com.blinde.barberShop.businessrule.gateway;
 
 import br.com.blinde.barberShop.domain.Scheduling;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public interface SchedulingGateway {
 
     void delete(Long id);
 
-    List<Scheduling> findByCpfClient(Long id);
+    List<Scheduling> findByCpfClient(Long id, LocalDate date);
 
-    List<Scheduling> findByCpfEmployee(Long id);
+    List<Scheduling> findByCpfEmployee(Long id, LocalDate date);
 }

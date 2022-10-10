@@ -5,17 +5,20 @@ import br.com.blinde.barberShop.businessrule.gateway.SchedulingGateway;
 import br.com.blinde.barberShop.businessrule.messages.MessageSourceServiceImpl;
 import br.com.blinde.barberShop.businessrule.messages.MessageTypeEnum;
 import br.com.blinde.barberShop.businessrule.usecase.SchedulingUseCase;
-import br.com.blinde.barberShop.domain.Scheduling;
 import br.com.blinde.barberShop.domain.Client;
 import br.com.blinde.barberShop.domain.Employee;
+import br.com.blinde.barberShop.domain.Scheduling;
 import br.com.blinde.barberShop.interfaceadapter.domain.request.schedule.ScheduleChangesRequest;
 import br.com.blinde.barberShop.interfaceadapter.domain.request.schedule.ScheduleIncludeRequest;
-import br.com.blinde.barberShop.interfaceadapter.domain.response.SchedulingResponse;
 import br.com.blinde.barberShop.interfaceadapter.domain.response.ClientResponse;
+import br.com.blinde.barberShop.interfaceadapter.domain.response.ClientSchedulingResponse;
 import br.com.blinde.barberShop.interfaceadapter.domain.response.EmployeeResponse;
+import br.com.blinde.barberShop.interfaceadapter.domain.response.EmployeeSchedulingResponse;
+import br.com.blinde.barberShop.interfaceadapter.domain.response.SchedulingResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static br.com.blinde.barberShop.businessrule.mapper.ObjectMapper.parseListObject;
@@ -82,23 +85,23 @@ public class SchedulingUseCaseImpl implements SchedulingUseCase {
     }
 
     @Override
-    public List<SchedulingResponse> findByCpfClient(String cpf) {
+    public List<ClientSchedulingResponse> findByCpfClient(String cpf, LocalDate date) {
 
         Client client = this.findByIdClient(cpf);
 
-        List<Scheduling> entity = gateway.findByCpfClient(client.getId());
+        List<Scheduling> entity = gateway.findByCpfClient(client.getId(), date);
 
-        return parseListObject(entity, SchedulingResponse.class);
+        return parseListObject(entity, ClientSchedulingResponse.class);
     }
 
     @Override
-    public List<SchedulingResponse> findByCpfEmployee(String cpf) {
+    public List<EmployeeSchedulingResponse> findByCpfEmployee(String cpf, LocalDate date) {
 
         Employee employee = this.findByIdEmployee(cpf);
 
-        List<Scheduling> entity = gateway.findByCpfEmployee(employee.getId());
+        List<Scheduling> entity = gateway.findByCpfEmployee(employee.getId(), date);
 
-        return parseListObject(entity, SchedulingResponse.class);
+        return parseListObject(entity, EmployeeSchedulingResponse.class);
     }
 
     private Client findByIdClient(String cpf) {

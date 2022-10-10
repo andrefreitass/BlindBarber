@@ -6,6 +6,7 @@ import br.com.blinde.barberShop.interfaceadapter.repository.SchedulingRepository
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,13 +32,13 @@ public class SchedulingGatewayImpl implements SchedulingGateway {
     }
 
     @Override
-    public List<Scheduling> findByCpfClient(Long id) {
-        return repository.findByClientIdOrderByIdDesc(id);
+    public List<Scheduling> findByCpfClient(Long id, LocalDate date) {
+        return repository.findByClientIdAndDateOrderByIdDesc(id,date);
     }
 
     @Override
-    public List<Scheduling> findByCpfEmployee(Long id) {
-        return repository.findByEmployeeIdOrderByIdDesc(id);
+    public List<Scheduling> findByCpfEmployee(Long id, LocalDate date) {
+        return repository.findByEmployeeIdAndDateOrderByIdDesc(id, date);
     }
 
     @Override
