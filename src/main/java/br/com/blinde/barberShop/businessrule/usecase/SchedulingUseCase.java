@@ -13,7 +13,7 @@ public interface SchedulingUseCase {
 
     SchedulingResponse findById(Long id);
 
-    List<SchedulingResponse> findAll();
+    List<SchedulingResponse> findAll(LocalDate date);
 
     SchedulingResponse create(ScheduleIncludeRequest request);
 

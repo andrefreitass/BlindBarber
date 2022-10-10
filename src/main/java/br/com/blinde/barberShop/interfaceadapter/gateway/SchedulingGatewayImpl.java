@@ -22,8 +22,8 @@ public class SchedulingGatewayImpl implements SchedulingGateway {
     }
 
     @Override
-    public List<Scheduling> findAll() {
-        return repository.findAll();
+    public List<Scheduling> findAll(LocalDate date) {
+        return repository.findByDateOrderByHourDesc(date);
     }
 
     @Override

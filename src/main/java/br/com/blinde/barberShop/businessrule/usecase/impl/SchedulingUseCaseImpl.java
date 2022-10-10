@@ -46,9 +46,9 @@ public class SchedulingUseCaseImpl implements SchedulingUseCase {
     }
 
     @Override
-    public List<SchedulingResponse> findAll() {
+    public List<SchedulingResponse> findAll(LocalDate date) {
 
-        List<Scheduling> entity = gateway.findAll();
+        List<Scheduling> entity = gateway.findAll(date);
 
         return parseListObject(entity, SchedulingResponse.class);
     }

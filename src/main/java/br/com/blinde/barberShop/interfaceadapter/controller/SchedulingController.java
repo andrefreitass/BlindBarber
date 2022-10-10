@@ -62,8 +62,8 @@ public class SchedulingController {
         return useCase.findById(id);
     }
 
-    @GetMapping("/")
-    @Operation(summary = "Finds all Scheduling", description = "Finds all Scheduling",
+    @GetMapping("/date/{date}")
+    @Operation(summary = "Finds all Scheduling to date", description = "Finds all Scheduling to date",
             tags = {"Scheduling"},
             responses = {
                     @ApiResponse(description = "Sucess", responseCode = "200",
@@ -82,8 +82,8 @@ public class SchedulingController {
                     )})
             }
     )
-    public List<SchedulingResponse> findAll() {
-        return useCase.findAll();
+    public List<SchedulingResponse> findAll(@PathVariable(value = "date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date) {
+        return useCase.findAll(date);
     }
 
     @PostMapping("/")

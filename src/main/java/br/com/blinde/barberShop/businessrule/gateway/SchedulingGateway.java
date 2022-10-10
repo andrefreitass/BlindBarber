@@ -10,7 +10,7 @@ public interface SchedulingGateway {
 
     Optional<Scheduling> findById(Long id);
 
-    List<Scheduling> findAll();
+    List<Scheduling> findAll(LocalDate date);
 
     Scheduling create(Scheduling entity);
 

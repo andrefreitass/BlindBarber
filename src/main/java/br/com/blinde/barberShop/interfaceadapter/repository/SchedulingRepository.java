@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface SchedulingRepository extends JpaRepository<Scheduling, Long> {
+    List<Scheduling> findByDateOrderByHourDesc(LocalDate date);
     List<Scheduling> findByClientIdAndDateOrderByIdDesc(Long id, LocalDate date);
-
     List<Scheduling> findByEmployeeIdAndDateOrderByIdDesc(Long id, LocalDate date);
 }
