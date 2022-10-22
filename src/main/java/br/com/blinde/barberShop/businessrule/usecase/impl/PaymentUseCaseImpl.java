@@ -6,7 +6,7 @@ import br.com.blinde.barberShop.businessrule.messages.MessageSourceServiceImpl;
 import br.com.blinde.barberShop.businessrule.messages.MessageTypeEnum;
 import br.com.blinde.barberShop.businessrule.usecase.PaymentUseCase;
 import br.com.blinde.barberShop.domain.Payment;
-import br.com.blinde.barberShop.interfaceadapter.domain.request.payment.PaymentChangeRequest;
+import br.com.blinde.barberShop.interfaceadapter.domain.request.payment.PaymentChangesRequest;
 import br.com.blinde.barberShop.interfaceadapter.domain.response.PaymentResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,7 +42,7 @@ public class PaymentUseCaseImpl implements PaymentUseCase {
     }
 
     @Override
-    public PaymentResponse update(PaymentChangeRequest request) {
+    public PaymentResponse update(PaymentChangesRequest request) {
 
         findById(request.getId());
 

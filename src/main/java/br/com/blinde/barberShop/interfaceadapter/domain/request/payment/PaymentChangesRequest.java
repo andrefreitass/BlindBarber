@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PaymentChangeRequest implements Serializable {
+public class PaymentChangesRequest implements Serializable {
 
     private Long id;
 
