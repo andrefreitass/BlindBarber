@@ -1,8 +1,8 @@
-package br.com.blinde.barberShop.interfaceadapter.gateway;
+package br.com.blinde.barberShop.repository.impl;
 
 import br.com.blinde.barberShop.businessrule.gateway.PaymentGateway;
 import br.com.blinde.barberShop.domain.Payment;
-import br.com.blinde.barberShop.interfaceadapter.repository.PaymentRepository;
+import br.com.blinde.barberShop.repository.PaymentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

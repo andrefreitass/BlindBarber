@@ -1,21 +1,23 @@
 package br.com.blinde.barberShop.domain;
 
+import br.com.blinde.barberShop.domain.utils.PersonalData;
 import br.com.blinde.barberShop.interfaceadapter.enums.SexoEnums;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Data
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee implements Serializable {
@@ -24,16 +26,26 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Embedded
+    private PersonalData personalData;
 
-    private String lastName;
+    public Employee(String name, String lastName, String cpf, LocalDate birthDate, String telephone, SexoEnums sex) {
+        this.personalData = new PersonalData(name, lastName, cpf, birthDate, telephone, sex);
+    }
 
-    private String cpf;
+    public Long getId() {
+        return id;
+    }
 
-    private LocalDate birthDate;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    private String telephone;
+    public PersonalData getPersonalData() {
+        return personalData;
+    }
 
-    @Enumerated(EnumType.STRING)
-    private SexoEnums sex;
+    public void setPersonalData(PersonalData personalData) {
+        this.personalData = personalData;
+    }
 }

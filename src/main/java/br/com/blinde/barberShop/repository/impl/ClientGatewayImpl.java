@@ -1,8 +1,8 @@
-package br.com.blinde.barberShop.interfaceadapter.gateway;
+package br.com.blinde.barberShop.repository.impl;
 
 import br.com.blinde.barberShop.businessrule.gateway.ClientGateway;
 import br.com.blinde.barberShop.domain.Client;
-import br.com.blinde.barberShop.interfaceadapter.repository.ClientRepository;
+import br.com.blinde.barberShop.repository.ClientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -40,8 +40,8 @@ public class ClientGatewayImpl implements ClientGateway {
         return repository.save(entity);
     }
 
-    @Override
-    public Optional<Client> findByCpf(String cpf) {
-        return repository.findByCpf(cpf);
-    }
+//    @Override
+//    public Optional<Client> findByCpf(String cpf) {
+//        return repository.findByCpf(cpf);
+//    }
 }

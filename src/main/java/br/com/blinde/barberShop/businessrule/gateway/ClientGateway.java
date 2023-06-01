@@ -17,5 +17,5 @@ public interface ClientGateway {
 
     void delete(Long id);
 
-    Optional<Client> findByCpf(String id);
+//    Optional<Client> findByCpf(String id);
 }

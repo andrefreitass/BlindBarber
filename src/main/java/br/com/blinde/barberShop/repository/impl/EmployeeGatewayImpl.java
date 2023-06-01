@@ -1,8 +1,8 @@
-package br.com.blinde.barberShop.interfaceadapter.gateway;
+package br.com.blinde.barberShop.repository.impl;
 
 import br.com.blinde.barberShop.businessrule.gateway.EmployeeGateway;
 import br.com.blinde.barberShop.domain.Employee;
-import br.com.blinde.barberShop.interfaceadapter.repository.EmployeeRepository;
+import br.com.blinde.barberShop.repository.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -40,8 +40,8 @@ public class EmployeeGatewayImpl implements EmployeeGateway {
         return repository.save(entity);
     }
 
-    @Override
-    public Optional<Employee> findByCpf(String cpf) {
-        return repository.findByCpf(cpf);
-    }
+//    @Override
+//    public Optional<Employee> findByCpf(String cpf) {
+//        return repository.findByCpf(cpf);
+//    }
 }

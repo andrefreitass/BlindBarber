@@ -1,39 +1,39 @@
 package br.com.blinde.barberShop.domain;
 
+import br.com.blinde.barberShop.domain.utils.PersonalData;
 import br.com.blinde.barberShop.interfaceadapter.enums.SexoEnums;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Data
+
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Embedded
+    private PersonalData personalData;
 
-    private String lastName;
-
-    private String cpf;
-
-    private LocalDate birthDate;
-
-    private String telephone;
-
-    @Enumerated(EnumType.STRING)
-    private SexoEnums sex;
+    public Client(String name, String lastName, String cpf, LocalDate birthDate, String telephone, SexoEnums sex) {
+        this.personalData = new PersonalData(name,lastName,cpf,birthDate,telephone,sex);
+    }
 }

@@ -1,4 +1,4 @@
-package br.com.blinde.barberShop.interfaceadapter.repository;
+package br.com.blinde.barberShop.repository;
 
 import br.com.blinde.barberShop.domain.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;

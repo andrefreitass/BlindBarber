@@ -1,8 +1,8 @@
-package br.com.blinde.barberShop.interfaceadapter.gateway;
+package br.com.blinde.barberShop.repository.impl;
 
 import br.com.blinde.barberShop.businessrule.gateway.AddressGateway;
 import br.com.blinde.barberShop.domain.Address;
-import br.com.blinde.barberShop.interfaceadapter.repository.AddressRepository;
+import br.com.blinde.barberShop.repository.AddressRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

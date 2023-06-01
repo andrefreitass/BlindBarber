@@ -17,5 +17,5 @@ public interface EmployeeGateway {
 
     void delete(Long id);
 
-    Optional<Employee> findByCpf(String cpf);
+//    Optional<Employee> findByCpf(String cpf);
 }

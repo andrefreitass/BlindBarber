@@ -1,8 +1,8 @@
-package br.com.blinde.barberShop.interfaceadapter.gateway;
+package br.com.blinde.barberShop.repository.impl;
 
 import br.com.blinde.barberShop.businessrule.gateway.SchedulingGateway;
 import br.com.blinde.barberShop.domain.Scheduling;
-import br.com.blinde.barberShop.interfaceadapter.repository.SchedulingRepository;
+import br.com.blinde.barberShop.repository.SchedulingRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
