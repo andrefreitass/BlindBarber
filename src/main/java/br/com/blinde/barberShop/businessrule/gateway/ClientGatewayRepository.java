@@ -5,7 +5,7 @@ import br.com.blinde.barberShop.domain.Client;
 import java.util.List;
 import java.util.Optional;
 
-public interface ClientGateway {
+public interface ClientGatewayRepository {
 
     Optional<Client> findById(Long id);
 
@@ -17,5 +17,5 @@ public interface ClientGateway {
 
     void delete(Long id);
 
-//    Optional<Client> findByCpf(String id);
+    Optional<Client> findByCpf(String cpf);
 }
